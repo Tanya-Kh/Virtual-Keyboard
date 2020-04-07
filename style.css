@@ -1,0 +1,59 @@
+﻿.wrapper {
+    width: 1020px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+textarea {
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    width: 900px;
+    padding: 10px 5px;
+    background: #556b2f;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    height: 270px;
+    margin: 0 auto;
+}
+
+.key {
+    position: relative;
+    height: 45px;
+    width: 6%;
+    max-width: 90px;
+    margin: 3px;
+    border-radius: 4px;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 1.05rem;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.key:active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.key-wide {
+    width: 11%;
+}
+.key-shift{
+    width: 20%;
+}
+
+.key-extra-wide {
+    width: 45%;
+    max-width: 500px;
+}
