@@ -67,9 +67,15 @@ function addNotes() {
 }
 
 document.addEventListener("keydown", function (event) {
-	document.getElementById(event.code).classList.add("key-active");
+
+	if (document.getElementById(event.code)) {
+		document.getElementById(event.code).classList.add("key-active");
+	}
 });
 
 document.addEventListener("keyup", function (event) {
-	document.getElementById(event.code).classList.remove("key-active");
+
+	if (document.getElementById(event.code)) {
+		document.getElementById(event.code).classList.remove("key-active");
+	}
 });
