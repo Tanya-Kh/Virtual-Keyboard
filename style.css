@@ -20,12 +20,17 @@ textarea {
     padding: 10px 5px;
     background: #556b2f;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    transition: bottom 0.4s;
     height: 270px;
     margin: 0 auto;
 }
 
+.keys {
+    text-align: center;
+}
+
 .key {
-    position: relative;
     height: 45px;
     width: 6%;
     max-width: 90px;
@@ -40,9 +45,11 @@ textarea {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
-.key:active {
+.key:active,
+.key-active {
     background: rgba(255, 255, 255, 0.1);
 }
 
@@ -56,4 +63,8 @@ textarea {
 .key-extra-wide {
     width: 45%;
     max-width: 500px;
+}
+
+p {
+    text-align: center;
 }
