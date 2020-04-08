@@ -1,8 +1,8 @@
 ﻿const wrapper = document.createElement("div");
 const keyboard = document.createElement("div");
 const textarea = document.createElement("textarea");
-let langEn = true;
 let keysPressed = [];
+let lang = localStorage.getItem("lang");
 
 const keys = [
 	'`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del', 'Caps Lock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '&#9650', 'Shift', 'Ctrl', 'Win', 'Alt', ' ', 'Alt', '&#9668', '&#9660', '&#9658', 'Ctrl'
@@ -22,7 +22,7 @@ function init() {
 	addWrapper();
 	addTextArea();
 	addKeyboard();
-	addKeys();
+	checkLanguage();
 	addNotes();
 }
 
@@ -43,7 +43,20 @@ function addKeyboard() {
 	wrapper.appendChild(keyboard);
 }
 
+function checkLanguage() {
+	if (typeof lang === "undefined" || lang === null) {
+		lang = "en";
+		localStorage.setItem("lang", lang);
+		addKeys();
+	} else {
+		lang = localStorage.getItem("lang");
+		addKeys();
+		changeKeys();
+	}
+}
+
 function addKeys() {
+
 	for (let i = 0; i < keys.length; i++) {
 		let button = document.createElement("button");
 		button.innerHTML = keys[i];
@@ -92,15 +105,16 @@ document.addEventListener("keyup", function (event) {
 });
 
 function changeLang() {
-	langEn == true ? langEn = false : langEn = true;
+	lang == "en" ? lang = "ru" : lang = "en";
 	changeKeys();
+	localStorage.setItem("lang", lang);
 }
 
 function changeKeys() {
 	let alphabet;
 	let keyboardKeys = document.getElementsByClassName("keyboard")[0];
 
-	if (langEn) {
+	if (lang == "en") {
 		alphabet = keys;
 	} else {
 		alphabet = russianKeys;
@@ -110,7 +124,4 @@ function changeKeys() {
 		let button = keyboardKeys.childNodes[i];
 		button.innerHTML = alphabet[i];
 	}
-
 }
-
-
