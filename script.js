@@ -67,7 +67,7 @@ function addKeys() {
 
 function addNotes() {
 	let notes = document.createElement("p");
-	notes.innerHTML = "Windows OS";
+	notes.innerHTML = "Windows OS<br>Language change: Shift + Alt";
 	wrapper.appendChild(notes);
 }
 
